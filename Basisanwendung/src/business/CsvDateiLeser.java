@@ -15,7 +15,7 @@ import java.util.Vector;
      		* @return String, Ueberschrift fuer das Grundfenster
      		*/
     		public String getUeberschrift(){
-        	 	return "Hallo";//h
+        	 	return "HalliHallo";//h
    		} 
         
            /**
