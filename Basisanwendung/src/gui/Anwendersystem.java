@@ -63,7 +63,42 @@ public class Anwendersystem{
     /* initialisiert die Listener zu den Steuerelementen auf der Maske
     */
     private void initListener(){
+        btnAnzeige.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent e) {
+                String[] ergebnis = leseKunden();
+                zeigeAn(ergebnis);
+        	}    
+        });
     }
+    
+    /*
+     * liest die Zeilen der Datei Kunden.csv und gibt sie als 
+     * String-Array zurueck.
+     * @return String[], enthaelt die Zeilen der Datei Kunden.csv
+     */
+    private String[] leseKunden(){
+       String[] ergebnis = null;
+       try{
+           ergebnis = this.csvDateiLeser.leseKunden();
+       }
+       catch(FileNotFoundException fnfExc){
+           this.zeigeFehlermeldung("FileNotFoundException",
+         	      "Datei wurde nicht gefunden!");
+       }
+
+       catch(IOException ioExc){
+           this.zeigeFehlermeldung("IOException",
+               "Fehler beim Lesen der Datei!");
+       }
+       catch(Exception exc){
+           this.zeigeFehlermeldung("Exception",
+               "Unbekannter Fehler!");
+       }
+       return ergebnis;
+    }
+
+
       
    	/* zeigt den Inhalt des Arrays zeilen in txtAnzeige an. */
     private void zeigeAn(String[] zeilen){
