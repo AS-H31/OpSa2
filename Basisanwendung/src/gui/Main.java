@@ -1,12 +1,12 @@
 package gui;
 
-public class Main {
+ 	import business.CsvDateiLeser;
 
-	public static void main(String[] args) {
-		System.out.println("Guten Tag!");
-		System.out.println("Guten Tag Ahmed");
-		//Hallo Ahmed This is Abobakr
-		
-	}
+ 	public class Main {
 
+		public static void main(String[] args) {
+			CsvDateiLeser cdl = new CsvDateiLeser();
+			String ueberschrift = cdl.getUeberschrift();
+			System.out.println(ueberschrift);
+		}
 }
